@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - aws cloudformation package --template-file teamlate.yaml --s3-bucket devops-poc-artifact --output-template-file packaged-template.yml
+      - aws cloudformation package --template-file template.yaml --s3-bucket devops-poc-artifact --output-template-file packaged-template.yml
   #build:
     #commands:
       #- pip install --upgrade pip
@@ -10,6 +10,7 @@ phases:
       #- pipenv install awscli aws-sam-cli
       #- pipenv run sam package --template-file template.yml --s3-bucket devops-poc-artifact --output-template-file packaged-template.yml
 artifacts:
+  type: zip
   files:
-    - teamlate.yaml
+    - template.yaml
     - packaged-template.yml
