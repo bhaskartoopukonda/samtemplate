@@ -1,16 +1,15 @@
 version: 0.2
 phases:
   install:
+    runtime-versions:
+        python: 3.7
+  build:
     commands:
-      - aws cloudformation package --template-file template.yaml --s3-bucket devops-poc-artifact --output-template-file packaged-template.yml
-  #build:
-    #commands:
-      #- pip install --upgrade pip
-      #- pip install pipenv --user
-      #- pipenv install awscli aws-sam-cli
-      #- pipenv run sam package --template-file template.yml --s3-bucket devops-poc-artifact --output-template-file packaged-template.yml
+      - npm install time
+      - export BUCKET=devops-poc-artifact
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
 artifacts:
   type: zip
   files:
     - template.yaml
-    - packaged-template.yml
+    - outputtemplate.yaml
