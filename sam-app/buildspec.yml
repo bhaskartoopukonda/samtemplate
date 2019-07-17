@@ -12,4 +12,5 @@ artifacts:
   type: zip
   files:
     - template.yaml
-    - outputtemplate.yaml
+    - outputtemplate.yaml  
+  discard-paths: yes
