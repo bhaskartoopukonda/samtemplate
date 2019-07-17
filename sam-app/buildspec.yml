@@ -5,6 +5,9 @@ phases:
         python: 3.7
   build:
     commands:
+      - pip install -- upgrade pip
+      - pip install pipenv -- user
+      - pip install awscli aws-sam-cli
       - npm install time
       - export BUCKET=devops-poc-artifact
       - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
