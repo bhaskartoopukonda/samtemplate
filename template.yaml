@@ -69,7 +69,7 @@ Resources:
   AuthFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: functions/auth/
+      CodeUri: serverless-api/functions/auth/
       Environment:
         Variables:
           USER_POOL_ID: !Ref UserPool
