@@ -10,6 +10,8 @@ phases:
       - pip install pipenv --user
       - pip install awscli aws-sam-cli
       - echo Pre-Build Installations Finished on `date`
+      - npm init -y
+      - npm i node-fetch amazon-cognito-identity-js
   build:
     commands:
       - echo Build started on `date`  
