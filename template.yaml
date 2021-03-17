@@ -4,7 +4,7 @@ Description: "An example REST API build with serverless technology"
 
 Globals:
   Function:
-    Runtime: nodejs8.10
+    Runtime: nodejs10.x
     Handler: index.handler
     Timeout: 30
     Tags:
