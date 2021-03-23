@@ -1,0 +1,40 @@
+Transform: 'AWS::Serverless-2016-10-31'
+Parameters:
+  StageName:
+    Type: String
+    Description: ApiGateway Stage Name
+    Default: tstbktidexcel
+  LambdaCodeUri:
+    Type: String
+    Description: Lambda Code Uri
+    Default: tstbktidexcel
+  LambdaHandler:
+    Type: String
+    Description: lambda handler
+    Default: lambda.handler
+  RunTime:
+    Type: String
+    Description: LambdaRuntime
+    Default: python3.7
+  ApiGateWayName:
+    Type: String
+    Description: ApiGateway name
+    Default: TEST-API
+Resources:
+  BasicAWSApiGateway:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      Name: !Ref ApiGateWayName
+      StageName: !Ref StageName
+  LambdaFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      CodeUri: !Ref LambdaCodeUri
+      Handler: !Ref LambdaHandler
+      Runtime: !Ref RunTime
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref BasicAWSApiGateway
+            Path: /hello
