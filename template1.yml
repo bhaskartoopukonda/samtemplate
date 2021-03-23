@@ -3,19 +3,19 @@ Parameters:
   StageName:
     Type: String
     Description: ApiGateway Stage Name
-    Default: tstbktidexcel
+    Default: test
   LambdaCodeUri:
     Type: String
     Description: Lambda Code Uri
-    Default: tstbktidexcel
+    Default: code/
   LambdaHandler:
     Type: String
     Description: lambda handler
-    Default: lambda.handler
+    Default: bucketlist.handler
   RunTime:
     Type: String
     Description: LambdaRuntime
-    Default: python3.7
+    Default: nodejs10.x
   ApiGateWayName:
     Type: String
     Description: ApiGateway name
@@ -38,4 +38,4 @@ Resources:
           Properties:
             RestApiId: !Ref BasicAWSApiGateway
             Method: get
-            Path: /hello
+            Path: /
