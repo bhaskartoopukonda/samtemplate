@@ -7,11 +7,11 @@ Parameters:
   LambdaCodeUri:
     Type: String
     Description: Lambda Code Uri
-    Default: code/
+    Default: app/
   LambdaHandler:
     Type: String
     Description: lambda handler
-    Default: bucketlist.handler
+    Default: server.handler
   RunTime:
     Type: String
     Description: LambdaRuntime
@@ -29,9 +29,9 @@ Resources:
   LambdaFunction:
     Type: 'AWS::Serverless::Function'
     Properties:
-      CodeUri: !Ref LambdaCodeUri
-      Handler: !Ref LambdaHandler
-      Runtime: !Ref RunTime
+      CodeUri: app/
+      Handler: server.handler
+      Runtime: nodejs10.x
       Events:
         HelloWorldApi:
           Type: Api
